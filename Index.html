@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Konservasi Jalur Migrasi Laut</title>
+    <style>
+        
+        :root {
+            --color-light-bg: #F0F8FF; 
+            --color-soft-blue: #87CEEB;
+            --color-dark-blue: #0D47A1; 
+            --color-text: #333333;
+            --color-accent-text: #FFFFFF;
+        }
+
+        
+        body {
+            font-family: 'Poppins', sans-serif; 
+            margin: 0;
+            padding-top: 70px;
+            background-color: var(--color-light-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: padding 0.3s;
+        }
+        * { box-sizing: border-box; }
+        a { text-decoration: none; color: var(--color-dark-blue); font-weight: bold; }
+        h1, h2, h3 { color: var(--color-dark-blue); }
+
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-soft-blue);
+        }
+        .nav-links {
+            display: none; 
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav-links a {
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: var(--color-soft-blue);
+            color: var(--color-dark-blue);
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        .nav-button {
+            background: none;
+            border: none;
+            color: var(--color-soft-blue);
+            font-size: 2rem;
+            cursor: pointer;
+            display: block;
+        }
+
+        
+        @media (min-width: 768px) {
+            body { padding-top: 80px; }
+            .header { padding: 10px 40px; }
+            .nav-button { display: none; }
+            .nav-links {
+                position: static;
+                flex-direction: row;
+                background-color: transparent;
+                padding: 0;
+                display: flex; 
+            }
+            .nav-links a {
+                border-bottom: none;
+                padding: 0 15px;
+            }
+            .nav-links a:hover {
+                background-color: transparent;
+                color: var(--color-soft-blue);
+            }
+        }
+
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-soft-blue), var(--color-dark-blue));
+            color: var(--color-accent-text);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50% 15%;
+            border-bottom-right-radius: 50% 15%;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section h1 {
+            color: var(--color-accent-text);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #FFC107;
+            color: var(--color-dark-blue);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px #ffb300;
+        }
+        .cta-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px #ffb300;
+        }
+
+       
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px 40px;
+        }
+        .info-card {
+            background-color: var(--color-accent-text);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin: 15px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+       
+        .footer {
+            background-color: var(--color-dark-blue);
+            color: var(--color-soft-blue);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+       
+        .ocean-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            clip-path: polygon(0 50%, 4% 40%, 8% 55%, 12% 45%, 16% 60%, 20% 50%, 24% 40%, 28% 55%, 32% 45%, 36% 60%, 40% 50%, 44% 40%, 48% 55%, 52% 45%, 56% 60%, 60% 50%, 64% 40%, 68% 55%, 72% 45%, 76% 60%, 80% 50%, 84% 40%, 88% 55%, 92% 45%, 96% 60%, 100% 50%, 100% 100%, 0 100%);
+            animation: wave-motion 20s infinite linear;
+            opacity: 0.5;
+        }
+        @keyframes wave-motion {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+    </style>
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="logo">🌊 Konservasi Laut</div>
+        <button class="nav-button" onclick="toggleNav()">☰</button>
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html" style="color: var(--color-soft-blue);">Beranda</a>
+            <a href="pengertian.html">Pengertian</a>
+            <a href="ancaman.html">Ancaman</a>
+            <a href="solusi.html">Solusi</a>
+            <a href="aksi_kita.html">Aksi Kita</a>
+            <a href="galeri.html">Galeri</a>
+        </nav>
+    </header>
+
+    
+    <section class="hero-section">
+        <div class="ocean-wave"></div>
+        <h1>Selamat Datang di Dunia Migrasi Laut!</h1>
+        <p>Yuk, kenali dan lindungi jalur penting para satwa laut agar mereka bisa sampai di rumah dengan aman.</p>
+        <a href="pengertian.html" class="cta-button">Mulai Eksplorasi Seru!</a>
+       
+        <p style="margin-top: 20px; font-size: 4rem;">🐳🐢🐟</p>
+    </section>
+
+    
+    <div class="info-container">
+        <div class="info-card">
+            <span class="emoji">🧭</span>
+            <h3>Jalur Rahasia</h3>
+            <p>Satwa laut menempuh ribuan kilometer untuk mencari makan dan berkembang biak. Jalur ini sangat vital!</p>
+        </div>
+        <div class="info-card">
+            <span class="emoji">🚨</span>
+            <h3>Mereka Butuh Bantuan</h3>
+            <p>Polusi, perburuan, dan perubahan iklim mengancam perjalanan mereka. Mari kita bertindak cepat!</p>
+        </div>
+        <div class="info-card">
+            <span class="emoji">✨</span>
+            <h3>Masa Depan Cerah</h3>
+            <p>Dengan aksi kecil dari kita, laut dan isinya bisa tetap sehat dan lestari. Bergabunglah!</p>
+        </div>
+    </div>
+
+   
+    <footer class="footer">
+        <p>&copy; 2024 Upaya Konservasi Laut. Dibuat dengan Cinta untuk Samudra.</p>
+    </footer>
+
+    
+    <script>
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

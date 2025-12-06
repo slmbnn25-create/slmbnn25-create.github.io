@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancaman - Konservasi Jalur Migrasi Laut</title>
+    <style>
+        
+        :root {
+            --color-light-bg: #F0F8FF;
+            --color-soft-blue: #87CEEB;
+            --color-dark-blue: #0D47A1;
+            --color-text: #333333;
+            --color-accent-text: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            background-color: var(--color-light-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        * { box-sizing: border-box; }
+        a { text-decoration: none; color: var(--color-dark-blue); font-weight: bold; }
+        h1, h2, h3 { color: var(--color-dark-blue); }
+
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-soft-blue);
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav-links a {
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: var(--color-soft-blue);
+            color: var(--color-dark-blue);
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        .nav-button {
+            background: none;
+            border: none;
+            color: var(--color-soft-blue);
+            font-size: 2rem;
+            cursor: pointer;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            body { padding-top: 80px; }
+            .header { padding: 10px 40px; }
+            .nav-button { display: none; }
+            .nav-links {
+                position: static;
+                flex-direction: row;
+                background-color: transparent;
+                padding: 0;
+                display: flex;
+            }
+            .nav-links a {
+                border-bottom: none;
+                padding: 0 15px;
+            }
+            .nav-links a:hover {
+                background-color: transparent;
+                color: var(--color-soft-blue);
+            }
+        }
+
+        
+        .content-section {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .content-section h1 {
+            border-bottom: 3px solid #FFC107; 
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #E53935;
+        }
+        .threat-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-accent-text);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #E53935;
+            flex-direction: column;
+            text-align: center;
+        }
+        .threat-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        .threat-item h3 {
+            margin-top: 0;
+            color: #E53935;
+        }
+        @media (min-width: 600px) {
+            .threat-item {
+                flex-direction: row;
+                text-align: left;
+            }
+            .threat-icon {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+        }
+        .next-prev-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .nav-link-btn {
+            background-color: var(--color-dark-blue);
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .nav-link-btn:hover {
+            background-color: var(--color-soft-blue);
+            color: var(--color-dark-blue);
+        }
+
+       
+        .footer {
+            background-color: var(--color-dark-blue);
+            color: var(--color-soft-blue);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="logo">🌊 Konservasi Laut</div>
+        <button class="nav-button" onclick="toggleNav()">☰</button>
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Beranda</a>
+            <a href="pengertian.html">Pengertian</a>
+            <a href="ancaman.html" style="color: var(--color-soft-blue);">Ancaman</a>
+            <a href="solusi.html">Solusi</a>
+            <a href="aksi_kita.html">Aksi Kita</a>
+            <a href="galeri.html">Galeri</a>
+        </nav>
+    </header>
+
+    
+    <main class="content-section">
+        <h1>🚨 BAHAYA! Ancaman di Jalur Migrasi Laut 🚨</h1>
+        
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">Sayangnya, perjalanan para satwa laut ini penuh rintangan yang dibuat oleh manusia. Apa saja ancamannya?</p>
+
+        <div class="threat-item">
+            <span class="threat-icon">🗑️</span>
+            <div>
+                <h3>Polusi Plastik dan Kimia</h3>
+                <p>Plastik dan mikroplastik mencemari lautan, sering kali termakan oleh satwa laut yang mengira itu makanan. Zat kimia beracun juga merusak habitat dan kesehatan mereka.</p>
+            </div>
+        </div>
+
+        <div class="threat-item">
+            <span class="threat-icon">🚢</span>
+            <div>
+                <h3>Tabrakan Kapal (Ship Strike)</h3>
+                <p>Di jalur migrasi yang ramai, paus besar sering menjadi korban tabrakan dengan kapal komersial. Ini adalah ancaman serius, terutama untuk paus bungkuk.</p>
+            </div>
+        </div>
+
+        <div class="threat-item">
+            <span class="threat-icon">🎣</span>
+            <div>
+                <h3>Bycatch (Tangkapan Sampingan)</h3>
+                <p>Hewan seperti penyu, lumba-lumba, atau hiu sering tidak sengaja tertangkap jaring nelayan yang sebenarnya menargetkan ikan lain. Mereka terperangkap dan kesulitan bernapas.</p>
+            </div>
+        </div>
+        
+        <div class="threat-item">
+            <span class="threat-icon">🌡️</span>
+            <div>
+                <h3>Perubahan Iklim</h3>
+                <p>Peningkatan suhu air laut dan pengasaman samudra mengganggu rantai makanan dan mengubah waktu migrasi, membuat satwa laut bingung dan kelaparan.</p>
+            </div>
+        </div>
+
+        <div class="next-prev-nav">
+            <a href="pengertian.html" class="nav-link-btn">← Ke Pengertian</a>
+            <a href="solusi.html" class="nav-link-btn">Lanjut ke Solusi →</a>
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <p>&copy; 2024 Upaya Konservasi Laut. Dibuat dengan Cinta untuk Samudra.</p>
+    </footer>
+
+   
+    <script>
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
