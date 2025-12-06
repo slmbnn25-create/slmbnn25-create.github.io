@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - Konservasi Jalur Migrasi Laut</title>
+    <style>
+        
+        :root {
+            --color-light-bg: #F0F8FF;
+            --color-soft-blue: #87CEEB;
+            --color-dark-blue: #0D47A1;
+            --color-text: #333333;
+            --color-accent-text: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            background-color: var(--color-light-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+        * { box-sizing: border-box; }
+        a { text-decoration: none; color: var(--color-dark-blue); font-weight: bold; }
+        h1, h2, h3 { color: var(--color-dark-blue); }
+
+        
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-soft-blue);
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-dark-blue);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav-links a {
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: var(--color-soft-blue);
+            color: var(--color-dark-blue);
+        }
+        .nav-links.active {
+            display: flex;
+        }
+        .nav-button {
+            background: none;
+            border: none;
+            color: var(--color-soft-blue);
+            font-size: 2rem;
+            cursor: pointer;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            body { padding-top: 80px; }
+            .header { padding: 10px 40px; }
+            .nav-button { display: none; }
+            .nav-links {
+                position: static;
+                flex-direction: row;
+                background-color: transparent;
+                padding: 0;
+                display: flex;
+            }
+            .nav-links a {
+                border-bottom: none;
+                padding: 0 15px;
+            }
+            .nav-links a:hover {
+                background-color: transparent;
+                color: var(--color-soft-blue);
+            }
+        }
+
+        /* Konten Khusus */
+        .content-section {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .content-section h1 {
+            border-bottom: 3px solid #87CEEB;
+            padding-bottom: 10px;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--color-dark-blue);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            background-color: var(--color-accent-text);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(2deg); /* Efek lucu */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .emoji-sticker {
+            font-size: 3rem;
+            display: block;
+            margin: 10px 0;
+        }
+        .next-prev-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        .nav-link-btn {
+            background-color: var(--color-dark-blue);
+            color: var(--color-accent-text);
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .nav-link-btn:hover {
+            background-color: var(--color-soft-blue);
+            color: var(--color-dark-blue);
+        }
+
+        
+        .footer {
+            background-color: var(--color-dark-blue);
+            color: var(--color-soft-blue);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header class="header">
+        <div class="logo">🌊 Konservasi Laut</div>
+        <button class="nav-button" onclick="toggleNav()">☰</button>
+        <nav class="nav-links" id="navMenu">
+            <a href="index.html">Beranda</a>
+            <a href="pengertian.html">Pengertian</a>
+            <a href="ancaman.html">Ancaman</a>
+            <a href="solusi.html">Solusi</a>
+            <a href="aksi_kita.html">Aksi Kita</a>
+            <a href="galeri.html" style="color: var(--color-soft-blue);">Galeri</a>
+        </nav>
+    </header>
+
+    
+    <main class="content-section">
+        <h1>📸 Galeri Satwa Laut Paling Lucu! 🐳</h1>
+        
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 30px;">Lihat teman-teman laut kita yang lucu dan inspiratif. Mari kita jaga perjalanan mereka!</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/nationalgeographic/201612211925514_b.jpg" alt="Aksi Penyu" >
+                <span class="emoji-sticker">🐋</span>
+                <p>Paus Bungkuk</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://ulyadays.com/wp-content/uploads/2021/06/Penyu-Laut-Spesies-Penyu-Hijau.jpg" alt="Aksi Penyu" >
+                <span class="emoji-sticker">🐢</span>
+                <p>Penyu Hijau</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://rmol.id/images/berita/normal/2023/03/670200_05234729032023_spinner-dolphin-3-hawaii-wildlife-fund.jpg" alt="Aksi Penyu" >
+                <span class="emoji-sticker">🐬</span>
+                <p>Lumba-lumba</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://manjakan.com/wp-content/uploads/2021/03/Hiu-Paus.jpg" alt="Aksi Penyu" >
+                <span class="emoji-sticker">🦈</span>
+                <p>Hiu Paus</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://4.bp.blogspot.com/-pTULgnQVQf4/V6x921EXgKI/AAAAAAAACRI/_cRcRF6j3pEKEubbegoZ6SVTmct5VwUkQCLcB/s1600/ikan%2Bbuntal%2Batau%2Bfugu.jpg" alt="Aksi Penyu" >
+                <span class="emoji-sticker">🐡</span>
+                <p>Ikan Buntal</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://cdn.pixabay.com/photo/2024/04/16/02/55/ai-generated-8698950_1280.jpg" alt="Aksi Paus" >
+                <span class="emoji-sticker">🐙</span>
+                <p>Gurita</p>
+            </div>
+        </div>
+
+        <div class="next-prev-nav">
+            <a href="aksi_kita.html" class="nav-link-btn">← Ke Aksi Kita</a>
+            <a href="index.html" class="nav-link-btn">Kembali ke Beranda →</a>
+        </div>
+    </main>
+
+   
+    <footer class="footer">
+        <p>&copy; 2024 Upaya Konservasi Laut. Dibuat dengan Cinta untuk Samudra.</p>
+    </footer>
+
+    
+    <script>
+        function toggleNav() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
